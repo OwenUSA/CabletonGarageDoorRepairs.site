@@ -34,9 +34,13 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: `${site.url}/` },
+      { property: "og:image", content: `${site.url}${heroImg}` },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
+      { name: "twitter:image", content: `${site.url}${heroImg}` },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: `${site.url}/` }],
     scripts: [
       {
         type: "application/ld+json",

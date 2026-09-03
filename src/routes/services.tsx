@@ -16,9 +16,13 @@ export const Route = createFileRoute("/services")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/services" },
+      { property: "og:url", content: `${site.url}/services` },
+      { property: "og:image", content: `${site.url}${installImg}` },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
+      { name: "twitter:image", content: `${site.url}${installImg}` },
     ],
-    links: [{ rel: "canonical", href: "/services" }],
+    links: [{ rel: "canonical", href: `${site.url}/services` }],
     scripts: [
       {
         type: "application/ld+json",
@@ -26,8 +30,8 @@ export const Route = createFileRoute("/services")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "/" },
-            { "@type": "ListItem", position: 2, name: "Services", item: "/services" },
+            { "@type": "ListItem", position: 1, name: "Home", item: `${site.url}/` },
+            { "@type": "ListItem", position: 2, name: "Services", item: `${site.url}/services` },
           ],
         }),
       },

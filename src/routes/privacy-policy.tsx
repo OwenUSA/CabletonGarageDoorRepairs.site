@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { site } from "@/lib/site";
+import heroImg from "@/assets/hero-garage.jpg";
 
 const title = `Privacy Policy | ${site.name}`;
 const description = `How ${site.name} collects, uses, and protects the information you share when requesting garage door service in ${site.city}.`;
@@ -12,9 +13,13 @@ export const Route = createFileRoute("/privacy-policy")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/privacy-policy" },
+      { property: "og:url", content: `${site.url}/privacy-policy` },
+      { property: "og:image", content: `${site.url}${heroImg}` },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
+      { name: "twitter:image", content: `${site.url}${heroImg}` },
     ],
-    links: [{ rel: "canonical", href: "/privacy-policy" }],
+    links: [{ rel: "canonical", href: `${site.url}/privacy-policy` }],
   }),
   component: PrivacyPage,
 });

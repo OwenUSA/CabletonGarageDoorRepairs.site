@@ -4,6 +4,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { MapEmbed } from "@/components/site/Sections";
 import { ContactForm } from "@/components/site/ContactForm";
 import { site } from "@/lib/site";
+import heroImg from "@/assets/hero-garage.jpg";
 
 const title = `Contact ${site.name} | ${site.city} Garage Door Repair`;
 const description = `Call ${site.phone} or send a message for garage door repair in ${site.city}. Open every day, 7:00 AM to 7:00 PM.`;
@@ -16,9 +17,13 @@ export const Route = createFileRoute("/contact")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/contact" },
+      { property: "og:url", content: `${site.url}/contact` },
+      { property: "og:image", content: `${site.url}${heroImg}` },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
+      { name: "twitter:image", content: `${site.url}${heroImg}` },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: `${site.url}/contact` }],
     scripts: [
       {
         type: "application/ld+json",

@@ -15,6 +15,7 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { Toaster } from "@/components/ui/sonner";
 import { site } from "@/lib/site";
+import heroImg from "@/assets/hero-garage.jpg";
 
 function NotFoundComponent() {
   return (
@@ -86,7 +87,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:site_name", content: site.name },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: `${site.url}${heroImg}` },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: `${site.url}${heroImg}` },
       { name: "theme-color", content: "#14181d" },
     ],
     links: [
@@ -111,6 +114,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           telephone: site.phone,
           email: site.email,
           url: `https://${site.domain}/`,
+          image: `${site.url}${heroImg}`,
           priceRange: "$$",
           address: {
             "@type": "PostalAddress",

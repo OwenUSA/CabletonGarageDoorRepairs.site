@@ -12,6 +12,9 @@ export const site = {
   zip: "90248",
   hours: "Open every day, 7:00 AM – 7:00 PM",
   yearFounded: 2009,
+  get url() {
+    return `https://${this.domain}`;
+  },
   get fullAddress() {
     return `${this.street}, ${this.city}, ${this.state} ${this.zip}`;
   },
